@@ -44,12 +44,14 @@ public class Recipe {
     private Set<Category> categories = new HashSet<>();
 
     public void setNotes(Notes notes) {
-        this.notes = notes;
-        notes.setRecipe(this);
+        if (notes != null) {
+            notes.setRecipe(this);
+            this.notes = notes;
+        }
     }
 
-    public void addIngredient(Ingredient ingredient){
-        if(this.ingredients == null){
+    public void addIngredient(Ingredient ingredient) {
+        if (this.ingredients == null) {
             ingredients = new HashSet<>();
         }
         this.ingredients.add(ingredient);
